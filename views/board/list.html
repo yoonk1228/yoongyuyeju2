@@ -1,0 +1,23 @@
+{% extends "_layout.html" %}
+{% block content %}
+    <h1>게시판 리스트가 보여요!!</h1>
+    <table>
+        <tr>
+            <td>번호</td>
+            <td>제목</td>
+            <td>작성자</td>
+            <td>작성일</td>
+        </tr>
+        
+        {% for item in list %}
+        <tr>
+            <td>{{item.idx}}</td>
+            <td><a href="/board/list/view?index={{item.idx}}">{{item.subject}}</a></td>
+            <td>{{item.nickname}}</td>
+            <td>{{item.date}}</td>
+        </tr>
+        
+        {% endfor %}
+    </table>
+    <a href="/board/list/write">글 작성</a>
+{% endblock %}
