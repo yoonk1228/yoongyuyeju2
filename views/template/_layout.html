@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>node mini project</title>
-    <link rel="stylesheet" href="/css.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/public.css">
 </head>
 <body>
 <div id="wrap">
@@ -11,6 +13,7 @@
     {% include "./_header.html" %}
     {% block content %}
     {% endblock %}
+    {% include "./_footer.html" %}
 </div>
 </body>
 </html>
