@@ -67,36 +67,40 @@ router.post('/delete',(req,res)=>{
     })
 })
 
-// router.post('/delete',(req,res)=>{
-//     let index = req.body.index-1
-//     boarddata.splice(index,1) 
-//     res.send(alertmove('/board/list','글삭제가 완료되었습니다.'))
-// })
-    // 코드는 많아보이지만 뭐 없다. 그냥 그 글에 해당하는 index값을 DB에서 splice로 지워버리는 형식
-    // 그 후 다시 list 로 돌아간다.
-
-
-
 
 
 router.get('/update',(req,res)=>{
-    res.render('board/list/update.html')
+    pool.getConnection( (err,conn)=>{
+        let index = req.query.index
+        // console.log(index)
+        conn.query(`SELECT * FROM board WHERE idx=${index}`,(error,result)=>{
+            let [data] = result
+            conn.release();
+            res.render('board/list/update.html',{
+                data,
+                index,
+            })
+        })
+    })
 })
-
-// router.get('/update',(req,res)=>{
-//     let index = req.query.index
-//     let data = boarddata[index-1]
-//     res.render('board/update',{
-//         index,
-//         data,
-//     })
-// })
-    // 내가 원하는글 즉, 내가원하는 인덱스값을 URI에 집어넣고 불러옴.
-    
 
     
 router.post('/update',(req,res)=>{
-    res.send('updatepost')
+
+    let subject = req.body.subject
+    let nickname = req.body.nickname
+    let story = req.body.story
+    
+    let index = req.body.index
+    // console.log(subject,nickname,story,index)
+    pool.getConnection( (err,conn)=>{
+        conn.query(`update board set subject='${subject}',nickname='${nickname}',story='${story}' where idx=${index};`,(error,result)=>{
+        // conn.query('select * from board',(error,result)=>{
+
+            res.redirect('/board/list')
+            conn.release()
+        })
+    })
 })
 
 // router.post('/update',(req,res)=>{

@@ -1,0 +1,23 @@
+{% extends "_layout.html" %}
+{% block content %}
+    <h1>글 수정 페이지에요!!</h1>
+    <form method="post" action="/board/list/update">
+        <input type="hidden" name="index" value="{{index}}">
+        <ul>
+            <li>
+                <strong>글 제목</strong>
+                : <input type="text" name="subject" value="{{data.subject}}">
+            </li>
+            <li>
+                <strong>작성자</strong>
+                : <input type="text" name="nickname" value="{{data.nickname}}">
+            </li>
+            <li>
+                <strong>글 내용</strong>
+                : <input type="text" name="story" value="{{data.story}}">
+            </li>
+        </ul>
+        <input type="submit" value="수정하기">
+    </form>
+    <a href="/board/list">목록가기</a>
+{% endblock %}
