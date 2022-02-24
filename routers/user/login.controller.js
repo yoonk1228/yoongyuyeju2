@@ -21,6 +21,7 @@ exports.loginAction = (req,res)=>{
             req.session.email = result[0].email;
             req.session.tel = result[0].tel;
             req.session.birth = result[0].birth;
+            
             res.redirect('/')
         }
 
