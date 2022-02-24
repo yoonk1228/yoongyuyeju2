@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const listRouter = require('./list/index.js')
-const pool = require('../../db.js')
+const {pool} = require('../../db.js')
 
 router.get('/list',(req,res)=>{
     pool.getConnection( (err,conn)=>{
