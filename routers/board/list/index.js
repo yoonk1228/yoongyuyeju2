@@ -75,7 +75,7 @@ router.get('/update',(req,res)=>{
         conn.query(`SELECT * FROM board WHERE idx=${index}`,(error,result)=>{
             let [data] = result
             conn.release();
-            res.render('board/list/_update.html',{
+            res.render('board/list/update.html',{
                 data,
                 index,
             })
