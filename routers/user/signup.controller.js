@@ -1,5 +1,5 @@
 const db = require('../../db')
-
+const {alertmove} = require('../../util/alert')
 exports.join = (req,res)=>{
     res.render('user/signup')
 }
@@ -19,19 +19,21 @@ exports.joinAction = (req,res) => {
 
     // let sql = `insert into personal(userid, userpw, username, nickname, gender, adress, email, tel, birth) values('${userid}','${userpw}','${username}', '${nickname}','${gender}', '${adress}', '${email}', '${tel}', '${birth}');`
     let sql2 = `INSERT INTO personal(userid,userpw,username,nickname,gender,adress,email,tel,birth)
-    values(?,?,?,?ss,?,?,?,?,?)
+    values(?,?,?,?,?,?,?,?,?)
     `
     let prepare = [userid,userpw,username,nickname,gender,adress,email,tel,birth]
-    db.getConnection( conn => {
+    db.pool2( conn => {
         conn.query( sql2, prepare, (error, result)=>{
-
-            if (error.errno == 1062) {
-                res.send('아이디 중복임 <a href="/user/signup">회원가입 다시하기</a>')}
-            else if(error) throw error
-            else if(result.affectedRows > 0) {
-                res.redirect('/')
+            if(result){
+                console.log(result);
+                res.send(alertmove('/', '회원가입이 완료되었습니다. 로그인을 해주세요.')) //회원환영페이지 이동
             }
-            console.log(result)
+            else if(error.errno == 1062){
+                res.send('user/signup', '중복된 아이디입니다. 다시 진행해주세요.');
+            } else {
+                throw error;
+            }
+            res.end();
         })
         conn.release()
         

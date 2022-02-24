@@ -8,7 +8,7 @@ exports.login = (req,res) => {
 exports.loginAction = (req,res)=>{
     let {userid,userpw} = req.body
     // console.log(userid, userpw)
-    db.getConnection(conn =>{
+    db.pool2(conn =>{
         conn.query('SELECT * from personal where userid = ? and userpw = ?;', [userid, userpw], (error, result)=>{
             console.log(result)
             if(result.length !=0){ //로그인된거 => 메인홈페이지
