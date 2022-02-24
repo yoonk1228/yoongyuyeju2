@@ -1,5 +1,5 @@
 const express=require('express')
-const pool = require('../../db2')
+const pool = require('../../db')
 const router=express.Router()
 
 router.post('/forced_out',(req,res)=>{
