@@ -28,6 +28,7 @@ exports.loginAction = (req,res)=>{
         else {res.send(alertmove('/user/login', '아이디와 패스워드를 확인하세요.'))} //안된거
     })
 
+    
     })
 }
 

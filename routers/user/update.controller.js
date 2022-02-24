@@ -19,4 +19,6 @@ exports.UpdateAction = (req, res)=>{
         // list[index-1] = item
         res.send(alertmove(`/board/view?index=${index}`,'글 수정이 완료되었습니다.'))
     })
+
+    
 }
