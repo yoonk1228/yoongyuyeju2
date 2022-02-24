@@ -10,4 +10,7 @@ const config = {host,user,password,database,connectionLimit: 10}
 
 const pool = mysql.createPool(config)
 
-module.exports = pool
+module.exports = {
+  pool:pool,
+
+}
