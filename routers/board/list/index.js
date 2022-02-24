@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const pool = require('../../../db.js')
+const {pool} = require('../../../db.js')
 
 
 
@@ -30,7 +30,6 @@ router.get('/view',(req,res)=>{
 
 
 router.get('/write',(req,res)=>{
-    
     res.render('board/list/write.html')
 })
 
@@ -76,7 +75,7 @@ router.get('/update',(req,res)=>{
         conn.query(`SELECT * FROM board WHERE idx=${index}`,(error,result)=>{
             let [data] = result
             conn.release();
-            res.render('board/list/update.html',{
+            res.render('board/list/_update.html',{
                 data,
                 index,
             })
