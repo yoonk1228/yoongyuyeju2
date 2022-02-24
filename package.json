@@ -18,7 +18,8 @@
     "memorystore": "^1.6.7",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
-    "nunjucks": "^3.2.3"
+    "nunjucks": "^3.2.3",
+    "sweetalert2": "^11.4.4"
   },
   "repository": {
     "type": "git",
