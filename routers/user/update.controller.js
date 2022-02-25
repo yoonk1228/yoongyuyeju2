@@ -12,52 +12,55 @@ exports.Update = (req, res)=>{
 
 exports.UpdateAction = (req, res)=>{
     db.pool2(conn => {
+        
     
-        let new_user = req.body  //새로입력된 데이터
-        let user = req.session //기존 데이터
+        //새로입력된 데이터12345
+        // let user = req.session //기존 데이터 1234
+
+        
         const arr = ['userpw', 'nickname', 'gender', 'localadd', 'email', 'tel', 'birth']
         let modify = [];
-        let success = ['성공'];
+        let success = [];
         let err = [];
         let count = modify.length
-        arr.forEach((e)=>{
-            if (user[e] != new_user[e]){
-                user[e] = new_user[e]
-                modify.push(e)
-            }
-        })
-        console.log("변경된사항", user)
-        console.log(modify) //변경된 key값
         
+        let {
+            userid,
+            userpw,
+            username,
+            nickname,
+            gender,
+            localadd,
+            email,
+            tel,
+            birth} = req.session
         
-        modify.forEach((e)=>{
+        conn.query(`update personal set userpw='${req.body.userpw}', username='${req.body.username}', nickname='${req.body.nickname}',gender='${req.body.gender}',localadd='${req.body.localadd}',email='${req.body.email}',tel='${req.body.tel}',birth='${req.body.birth}' where userid='${req.body.userid}';`,(error,result)=>{
             
-            conn.query(`update personal set ${e}='${user[e]}' where userid='${user.userid}';`,(error,result)=>{
+            if (result){
                 
-                if (result){
-                    console.log(result)
-                    console.log(e)
-                    success.push(e)
-                } else if(error){
-                    console.log(error)
-                    console.log(e)
-                    err.push(e)
-                    throw error
-                    
+                req.session.nickname = req.body.nickname
+                req.session.save(function() {
+                    console.log(req.session)
+                    res.send(alertmove('/user/profile', '회원정보 수정이 완료되었습니다.'))
+                })
+            
+            }else if (error){
+                
+                if(error.errno == 1406){
+                  res.send(alertmove('/user/update', '글자수를 확인해주세요.'))  
                 }
+                else{throw error}
                 
+            }
+            
+
             })
-             
-        })
-        console.log(success)
-        console.log(err)
+    
+            // console.log("변경된사항", user)
+            // console.log(modify) //변경된 key값
         
-        
-        
-        
-
+   
         // res.send(alertmove('/user/profile','글 수정이 완료되었습니다.'))
-    }
-
-
-    )}
+    })
+}
