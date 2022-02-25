@@ -11,17 +11,17 @@ exports.joinAction = (req,res) => {
         username,
         nickname,
         gender,
-        adress,
+        address,
         email,
         tel,
         birth} = req.body
 
 
     // let sql = `insert into personal(userid, userpw, username, nickname, gender, adress, email, tel, birth) values('${userid}','${userpw}','${username}', '${nickname}','${gender}', '${adress}', '${email}', '${tel}', '${birth}');`
-    let sql2 = `INSERT INTO personal(userid,userpw,username,nickname,gender,adress,email,tel,birth)
+    let sql2 = `INSERT INTO personal(userid,userpw,username,nickname,gender,address,email,tel,birth)
     values(?,?,?,?,?,?,?,?,?)
     `
-    let prepare = [userid,userpw,username,nickname,gender,adress,email,tel,birth]
+    let prepare = [userid,userpw,username,nickname,gender,address,email,tel,birth]
     db.pool2( conn => {
         conn.query( sql2, prepare, (error, result)=>{
             if(result){
