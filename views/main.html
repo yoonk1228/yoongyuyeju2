@@ -7,6 +7,7 @@
 </script>
 <h1>메인 (첫 화면) 페이지에요!!</h1>
 <div id="main">
+    {% if user.userid === undefined %}
     <div id="section-login">
         <form method="post" action="/user/login">
             <li>
@@ -23,6 +24,11 @@
             </li>
         </form>
     </div>
+    {% elif user.userid !== undefined %}
+    <div id="section-welcome">
+        <h1>{{user.username}}님 환영합니다!</h1>
+    </div>
+    {% endif %}
     <div id="content">
         <h1>컨텐츠 영역입니다!123</h1>
     </div>
