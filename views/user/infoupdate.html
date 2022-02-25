@@ -4,13 +4,13 @@
 <form method="post" action="/user/update">
     <ul>
         <li>
-            비밀번호: <input type="password" name="userpw" placeholder="{{user.userpw}}">
+            비밀번호: <input type="password" name="userpw" value="{{user.userpw}}">
         </li>
         <li>
-            이름: <input type="text" name="username" placeholder="{{user.username}}">
+            이름: <input type="text" name="username" value="{{user.username}}">
         </li>
         <li>
-            별명: <input type="text" name="nickname" placeholder="{{user.nickname}}">
+            별명: <input type="text" name="nickname" value="{{user.nickname}}">
         </li>
         {% if user.gender === '남' %}
         <li>
@@ -30,16 +30,16 @@
         </li>
         {% endif %}
         <li>
-            주소: <input type="text" name="address" placeholder="{{user.localadd}}">
+            주소: <input type="text" name="address" value="{{user.localadd}}">
         </li>
         <li>
-            이메일: <input type="text" name="email" placeholder="{{user.email}}">
+            이메일: <input type="text" name="email" value="{{user.email}}">
         </li>
         <li>
-            전화번호: <input type="text" name="tel" placeholder="{{user.tel}}">
+            전화번호: <input type="text" name="tel" value="{{user.tel}}">
         </li>
         <li>
-            생일: <input type="text" name="birth" placeholder="{{user.birth}}">
+            생일: <input type="text" name="birth" value="{{user.birth}}">
         </li>
     </ul>
     <input type="submit" value="수정하기">

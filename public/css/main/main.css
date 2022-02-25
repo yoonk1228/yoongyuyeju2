@@ -1,2 +1,45 @@
+<<<<<<< HEAD
 /* CSS style sheet */
 
+=======
+/* CSS style sheet */
+
+.img-area {
+    width: 500px;
+    height: 300px;
+    border: 1px solid #000000;
+    /* flex */
+    display: flex;
+    /* 삐져나오는 부분 안보이게 hidden */
+    overflow: hidden;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.album {
+    /* img-area 와 크기를 딱 맞춤 */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    transition: all 1s;
+    display: flex;
+    /* 이미지의 width 만큼 x축을 이동시킴. */
+    /* transform: translateX(-800px); */
+}
+
+.img-area > .album > img{
+    /* img-area 와 크기를 딱 맞춤 */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.btn-area {
+    width: 600px;
+    height: 60px;
+    border: 1px solid #000000;
+    /* flex */
+    display: flex;
+    justify-content: space-around;
+}
+>>>>>>> 4a80eba7ef9ff4013a5de0548f9d9fbc1a65fc59
