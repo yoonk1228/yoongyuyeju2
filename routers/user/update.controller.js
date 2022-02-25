@@ -13,9 +13,6 @@ exports.Update = (req, res)=>{
 exports.UpdateAction = (req, res)=>{
     db.pool2(conn => {
     
-<<<<<<< HEAD
-}
-=======
         let new_user = req.body  //새로입력된 데이터
         let user = req.session //기존 데이터
         const arr = ['userpw', 'nickname', 'gender', 'localadd', 'email', 'tel', 'birth']
@@ -64,4 +61,3 @@ exports.UpdateAction = (req, res)=>{
 
 
     )}
->>>>>>> 4059abd464e1fbe5643a624fe1a484e8db7ab6fa
