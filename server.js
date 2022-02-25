@@ -12,6 +12,7 @@ nunjucks.configure('views',{
 })
 
 app.use(express.static('public'))
+app.use(express.static('public/js'))
 app.use(express.urlencoded({extended:true,}))
 
 const maxAge = 1000*60*60 //60분
