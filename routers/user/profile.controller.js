@@ -1,6 +1,6 @@
 
 exports.profile = (req, res) => {
-    const { user } = req.session;
+    const  user  = req.session;
     res.render('user/profile', { user })
-    console.log(req.session)
+    console.log(user)
 }
