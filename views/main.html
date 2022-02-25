@@ -5,7 +5,24 @@
 {% block content %}
 <script type="text/javascript" src="test.js">
 </script>
+<h1>메인 (첫 화면) 페이지에요!!</h1>
 <div id="main">
+    <div id="section-login">
+        <form method="post" action="/user/login">
+            <li>
+                <input type="text" name="userid" placeholder="아이디를 입력하세요">
+            </li>
+            <li>
+                <input type="password" name="userpw" placeholder="패스워드를 입력하세요">
+            </li>
+            <li>
+                <input type="submit" value="로그인하기">
+            </li>
+            <li>
+                <a href="/user/signup">회원가입</a>
+            </li>
+        </form>
+    </div>
     <div id="content">
         <h1>컨텐츠 영역입니다!123</h1>
     </div>
