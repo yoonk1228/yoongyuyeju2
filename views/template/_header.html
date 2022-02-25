@@ -6,8 +6,19 @@
         <li>
             <a href="/board/list">게시판</a>
         </li>
+        {% if user.userid !== undefined %}
         <li>
             <a href="/user/profile">내 정보</a>
         </li>
+        {% else %}
+        {% endif %}
+        {% if user.userid !== undefined %}
+        <li>
+            <form method="post" action="/user/logout">
+                <input type="submit" value="로그아웃">
+            </form>
+        </li>
+        {% else %}
+        {% endif %}
     </ul>
 </header>
