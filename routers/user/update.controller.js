@@ -15,7 +15,7 @@ exports.UpdateAction = (req, res)=>{
     
         let new_user = req.body  //새로입력된 데이터
         let user = req.session //기존 데이터
-        const arr = ['userpw', 'nickname', 'gender', 'address', 'email', 'tel', 'birth']
+        const arr = ['userpw', 'nickname', 'gender', 'localadd', 'email', 'tel', 'birth']
         let modify = [];
         let success = ['성공'];
         let err = [];
