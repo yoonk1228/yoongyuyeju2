@@ -17,7 +17,7 @@ exports.loginAction = (req,res)=>{
             req.session.username = result[0].username;
             req.session.nickname = result[0].nickname;
             req.session.gender = result[0].gender;
-            req.session.adress = result[0].adress;
+            req.session.address = result[0].address;
             req.session.email = result[0].email;
             req.session.tel = result[0].tel;
             req.session.birth = result[0].birth;
