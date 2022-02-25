@@ -4,45 +4,43 @@
 <form method="post" action="/user/profile">
     <ul>
         <li>
-            비밀번호: <input type="password" name="userpw" placeholder="{{user.userpw}}">
+            비밀번호: {{user.userpw}}
         </li>
         <li>
-            이름: <input type="text" name="username" placeholder="{{user.username}}">
+            이름: {{user.username}}
         </li>
         <li>
-            별명: <input type="text" name="nickname" placeholder="{{user.nickname}}">
+            별명: {{user.nickname}}
         </li>
         {% if user.gender === '남' %}
         <li>
-            <input type="radio" name="gender" value="남자" checked="checked">남
-            <input type="radio" name="gender" value="여자">여자
+            성별: {{user.gender}}자
         </li>
         {% elif user.gender === '여' %}
         <li>
-            <input type="radio" name="gender" value="남자">남자
-            <input type="radio" name="gender" value="여자" checked="checked">여자
-        </li>
-        <!-- user 정보가 없는 상황에서 테스트를 위한 목업코드 -->
-        {% else %}
-        <li>
-            <input type="radio" name="gender" value="남자">남자
-            <input type="radio" name="gender" value="여자" checked="checked">여자
+            성별: {{user.gender}}자
         </li>
         {% endif %}
         <li>
-            주소: <input type="text" name="address" placeholder="{{user.address}}">
+            주소: {{user.address}}
         </li>
         <li>
-            이메일: <input type="text" name="email" placeholder="{{user.email}}">
+            이메일: {{user.email}}
         </li>
         <li>
-            전화번호: <input type="text" name="tel" placeholder="{{user.tel}}">
+            전화번호: {{user.tel}}
         </li>
         <li>
-            생일: <input type="text" name="birth" placeholder="{{user.birth}}">
+            생일: {{user.birth}}
         </li>
     </ul>
-    <input type="submit" value="수정하기">
-    <a href="/">뒤로가기</a>
+    <ul>
+        <li>
+            <a href="/user/update">정보 수정하기</a>
+        </li>
+        <li>
+            <a href="/">뒤로가기</a>
+        </li>
+    </ul>
 </form>
 {% endblock %}

@@ -22,7 +22,7 @@ exports.loginAction = (req,res)=>{
             req.session.tel = result[0].tel;
             req.session.birth = result[0].birth;
             
-            res.redirect('/')
+            res.send(alertmove('/', '로그인이 완료되었습니다.'))
         }
 
         else {res.send(alertmove('/user/login', '아이디와 패스워드를 확인하세요.'))} //안된거
