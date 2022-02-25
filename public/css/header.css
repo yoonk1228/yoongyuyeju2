@@ -1,6 +1,18 @@
+<<<<<<< HEAD
 /* CSS style sheet */
 
 #header {
     width: 100%;
     border-bottom: 1px solid #000;
+=======
+/* CSS style sheet */
+
+#header {
+    width: 100%;
+    border-bottom: 1px solid #000;
+}
+
+.btn-menu-font {
+    font-size: 16px;
+>>>>>>> f001b31fa605226ec50b8512b2d93bc59cd33a5d
 }

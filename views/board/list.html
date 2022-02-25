@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "../template/_layout.html" %}
 {% block content %}
     <h1>게시판 리스트가 보여요!!</h1>
@@ -20,4 +21,28 @@
         {% endfor %}
     </table>
     <a href="/board/list/write">글 작성</a>
+=======
+{% extends "../template/_layout.html" %}
+{% block content %}
+    <h1>게시판 리스트가 보여요!!</h1>
+    <table>
+        <tr>
+            <td>번호</td>
+            <td>제목</td>
+            <td>작성자</td>
+            <td>작성일</td>
+        </tr>
+        
+        {% for item in list %}
+        <tr>
+            <td>{{item.idx}}</td>
+            <td><a class="btn btn-font" href="/board/list/view?index={{item.idx}}">{{item.subject}}</a></td>
+            <td>{{item.nickname}}</td>
+            <td>{{item.date}}</td>
+        </tr>
+        
+        {% endfor %}
+    </table>
+    <a class="btn btn-font" href="/board/list/write">글 작성</a>
+>>>>>>> f001b31fa605226ec50b8512b2d93bc59cd33a5d
 {% endblock %}

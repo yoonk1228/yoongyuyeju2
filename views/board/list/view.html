@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "../../template/_layout.html" %}
 {% block content %}
     <h1>리스트에서 글 누르고 나오는 페이지에요!!</h1>
@@ -27,4 +28,35 @@
     
     <a href="/board/list/update?index={{index}}">수정하기</a>
     
+=======
+{% extends "../../template/_layout.html" %}
+{% block content %}
+    <h1>리스트에서 글 누르고 나오는 페이지에요!!</h1>
+    <ul>
+        <li>
+            게시물 번호 : {{data.idx}}
+        </li>
+        <li>
+            제목 : {{data.subject}}
+        </li>
+        <li>
+            작성자 : {{data.nickname}}
+        </li>
+        <li>
+            작성일 : {{data.date}}
+        </li>
+        <li>
+            내용 : {{data.story}}
+        </li>
+    </ul>
+    <a class="btn btn-font" href="/board/list">목록가기</a>
+
+    <form method="post" action="/board/list/delete">
+        <input type="hidden" name="index" value="{{index}}">
+        <input class="btn btn-font" type="submit" value="삭제">
+    </form>
+    
+    <a class="btn btn-font" href="/board/list/update?index={{index}}">수정하기</a>
+    
+>>>>>>> f001b31fa605226ec50b8512b2d93bc59cd33a5d
 {% endblock %}

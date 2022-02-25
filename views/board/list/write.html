@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "../../template/_layout.html" %}
 {% block content %}
     <h1>글 작성 페이지에요!!</h1>
@@ -15,4 +16,23 @@
         </ul>
         <input type="submit" value="글 작성">
     </form>
+=======
+{% extends "../../template/_layout.html" %}
+{% block content %}
+    <h1>글 작성 페이지에요!!</h1>
+    <form method="post" action="/board/list/write">
+        <ul>
+            <li>
+                제목 : <input type="text" name="subject">   
+            </li>
+            <li>
+                작성자 : <input type="text" name="nickname">
+            </li>
+            <li>
+                내용 : <input type="text" name="story">
+            </li>
+        </ul>
+        <input class="btn btn-font" type="submit" value="글 작성">
+    </form>
+>>>>>>> f001b31fa605226ec50b8512b2d93bc59cd33a5d
 {% endblock %}
