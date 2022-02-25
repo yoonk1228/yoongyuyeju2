@@ -12,12 +12,12 @@
         {% for item in list %}
         <tr>
             <td>{{item.idx}}</td>
-            <td><a href="/board/list/view?index={{item.idx}}">{{item.subject}}</a></td>
+            <td><a class="btn btn-font" href="/board/list/view?index={{item.idx}}">{{item.subject}}</a></td>
             <td>{{item.nickname}}</td>
             <td>{{item.date}}</td>
         </tr>
         
         {% endfor %}
     </table>
-    <a href="/board/list/write">글 작성</a>
+    <a class="btn btn-font" href="/board/list/write">글 작성</a>
 {% endblock %}

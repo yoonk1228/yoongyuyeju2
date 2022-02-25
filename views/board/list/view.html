@@ -18,13 +18,13 @@
             내용 : {{data.story}}
         </li>
     </ul>
-    <a href="/board/list">목록가기</a>
+    <a class="btn btn-font" href="/board/list">목록가기</a>
 
     <form method="post" action="/board/list/delete">
         <input type="hidden" name="index" value="{{index}}">
-        <input type="submit" value="삭제">
+        <input class="btn btn-font" type="submit" value="삭제">
     </form>
     
-    <a href="/board/list/update?index={{index}}">수정하기</a>
+    <a class="btn btn-font" href="/board/list/update?index={{index}}">수정하기</a>
     
 {% endblock %}
