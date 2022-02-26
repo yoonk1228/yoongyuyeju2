@@ -29,13 +29,24 @@ exports.joinAction = (req,res) => {
                 res.send(alertmove('/', '회원가입이 완료되었습니다. 로그인을 해주세요.')) //회원환영페이지 이동
             }
             else if(error.errno == 1062){
-                res.send('user/signup', '중복된 아이디입니다. 다시 진행해주세요.');
+                console.log(error)
+                console.log(error.sqlMessage)
+                if(error.sqlMessage.includes('personal.PRIMARY')){
+                    res.send(alertmove('user/signup', '중복된 아이디입니다. 다시 진행해주세요.'))
+                } else if(error.sqlMessage.includes('personal.nickname')){
+                    res.send(alertmove('user/signup', '중복된 닉네임입니다. 다시 진행해주세요.'))
+                } else if(error.sqlMessage.includes('personal.email')){
+                    res.send(alertmove('user/signup', '이미 가입된 이메일입니다. 다시 진행해주세요.'))
+                }
+                
             } else {
-                throw error;
+                
+                console.log(error)
+                throw error
             }
-            res.end();
+            
         })
-        conn.release()
+        
         
     })
 

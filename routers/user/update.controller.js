@@ -12,55 +12,62 @@ exports.Update = (req, res)=>{
 
 exports.UpdateAction = (req, res)=>{
     db.pool2(conn => {
-        
     
-        //새로입력된 데이터12345
-        // let user = req.session //기존 데이터 1234
+        let new_user = req.body  //새로입력된 데이터
+        let user = req.session //기존 데이터
+        const arr = ['userpw', 'nickname', 'gender', 'localadd', 'email', 'tel', 'birth'] // 변경가능한 컬럼값(회원정보)
+        let modify_key = []; //정보가 변경된 컬럼명만 넣을 배열
+        let modify = []; // 쿼리문 형태로 넣을 배열 
+        arr.forEach((e)=>{
+            if (user[e] != new_user[e]){
+                user[e] = new_user[e]
+                modify_key.push(e)
+                modify.push(`${e} = '${user[e]}'`) //["nickname = '귤'", 등등....]
+            } // 변경사항이 있는 컬럼 추출 및 쿼리문에 들어갈 내용 생성
+        })
+        //console.log("변경된사항", user)
+        
 
-        
-        const arr = ['userpw', 'nickname', 'gender', 'localadd', 'email', 'tel', 'birth']
-        let modify = [];
-        let success = [];
-        let err = [];
-        let count = modify.length
-        
-        let {
-            userid,
-            userpw,
-            username,
-            nickname,
-            gender,
-            localadd,
-            email,
-            tel,
-            birth} = req.session
-        
-        conn.query(`update personal set userpw='${req.body.userpw}', username='${req.body.username}', nickname='${req.body.nickname}',gender='${req.body.gender}',localadd='${req.body.localadd}',email='${req.body.email}',tel='${req.body.tel}',birth='${req.body.birth}' where userid='${req.body.userid}';`,(error,result)=>{
+        let query = modify.join() //배열을 string으로 변경
+        //console.log(query) // 출력결과 : nickname = '귤',gender = '여',localadd = '우리집'
+
+
+            
+        conn.query(`update personal set ${query} where userid='${req.body.userid}';`,(error,result)=>{
             
             if (result){
-                
-                req.session.nickname = req.body.nickname
-                req.session.save(function() {
-                    console.log(req.session)
-                    res.send(alertmove('/user/profile', '회원정보 수정이 완료되었습니다.'))
+                console.log(result)
+                modify_key.forEach((e)=>{
+                    req.session[e] = req.body[e] //세션변경
                 })
-            
-            }else if (error){
+
+                res.send(alertmove('/user/profile', '프로필 수정이 완료되었습니다.'))
                 
-                if(error.errno == 1406){
-                  res.send(alertmove('/user/update', '글자수를 확인해주세요.'))  
+            } else if(error){
+                console.log("에러사항", error)
+                if (error.errno == 1062){
+                    if(error.sqlMessage.includes('personal.PRIMARY')){
+                        res.send(alertmove('user/signup', '중복된 아이디입니다. 다른 아이디를 입력해주세요.'))
+                    } else if(error.sqlMessage.includes('personal.nickname')){
+                        res.send(alertmove('user/signup', '중복된 닉네임입니다. 다른 닉네임을 입력해주세요.'))
+                    } else if(error.sqlMessage.includes('personal.email')){
+                        res.send(alertmove('user/signup', '중복된 이메일입니다. 다른 이메일을 입력해주세요.'))
+                    }
+                    
                 }
-                else{throw error}
+                else if (error.errno == 1406){
+                    res.send(alertmove('/user/profile', '글자수를 확인해주세요.'))
+                }else if(error.errno == 1064){
+                    res.send(alertmove('/user/profile', '변경된 사항이 없습니다.'))
+                } else {
+                    throw error
+                }
                 
             }
             
+        })
 
-            })
-    
-            // console.log("변경된사항", user)
-            // console.log(modify) //변경된 key값
-        
-   
-        // res.send(alertmove('/user/profile','글 수정이 완료되었습니다.'))
-    })
-}
+    }
+
+
+    )}

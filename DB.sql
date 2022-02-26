@@ -3,6 +3,7 @@ CREATE database YGYJ;
 use YGYJ;
 
 DROP TABLE personal;
+DROP TABLE board;
 
 CREATE TABLE personal(
     userid VARCHAR(15) NOT NULL PRIMARY KEY,
@@ -14,7 +15,8 @@ CREATE TABLE personal(
     email VARCHAR(50) NOT NULL,
     tel VARCHAR(11) NOT NULL,
     birth VARCHAR(10) NOT NULL,
-    UNIQUE INDEX(nickname, email)
+    UNIQUE INDEX(nickname),
+    UNIQUE INDEX(email)
 ) DEFAULT CHARSET=utf8mb4;
 
 
