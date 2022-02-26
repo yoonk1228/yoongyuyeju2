@@ -6,9 +6,15 @@ exports.resignAction = (req, res) => {
         // console.log(req.session)
         console.log('req.body:' , req.body)
         conn.query(`delete from personal where userid = '${req.session.userid}'`,  (err, result)=>{
-            if (err) throw err
-            console.log(req.session.userid)
-            console.log(result)
+            if (result){
+                req.session.destroy(()=>{
+                    req.session
+                })
+                res.send(alertmove('회원탈퇴가 완료되었습니다'))               
+            }else if (err) throw err
+            
+            console.log(err)
+            
         })
     })
 
