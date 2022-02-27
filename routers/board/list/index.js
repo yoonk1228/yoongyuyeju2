@@ -11,8 +11,16 @@ router.get('/view',(req,res)=>{
     pool.getConnection( (err,conn)=>{
         let index = req.query.index
         conn.query(`SELECT * FROM board WHERE idx=${index}`,(error,result)=>{
-            let [data] = result
             conn.release();
+
+            let date_obj = result[0].date
+            let date_a = JSON.stringify(date_obj).substring(1,11)
+            let date_b = JSON.stringify(date_obj).substring(12,20)
+            let date = date_a+" "+date_b
+            result[0].date = date
+            
+            let [data] = result
+            
             res.render('board/list/view.html',{
                 data,
                 index,
