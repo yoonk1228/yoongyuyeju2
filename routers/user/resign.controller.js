@@ -4,9 +4,9 @@ const {alertmove} = require('../../util/alert')
 exports.resignAction = (req, res) => {
     db.pool2(conn => {
         
-        console.log('req.body:' , req.body)
+        // console.log('req.body:' , req.body)
         conn.query(`delete from personal where userid = '${req.session.userid}'`,  (err, result)=>{
-            console.log("결과", result, err)
+            // console.log("결과", result, err)
             if (result){
                 req.session.destroy(()=>{
                     req.session
