@@ -31,7 +31,7 @@ exports.UpdateAction = (req, res)=>{
         let query = modify.join() //배열을 string으로 변경
         //console.log(query) // 출력결과 : nickname = '귤',gender = '여',localadd = '우리집'
    
-        conn.query(`update personal set ${query} where userid='${req.body.userid}';`,(error,result)=>{
+        conn.query(`update personal set ${query} where userid='${user.userid}';`,(error,result)=>{
             //console.log("결과", result, error)
             if(error){
                 if (error.errno == 1062){
