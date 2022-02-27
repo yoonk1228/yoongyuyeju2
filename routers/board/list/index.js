@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const {pool} = require('../../../db.js')
+const {alertmove} = require('../../../util/alert')
 
 
 
@@ -49,15 +50,21 @@ router.post('/write',(req,res)=>{
     let nickname = req.body.nickname
     let story = req.body.story
 
-    pool.getConnection( (err,conn)=>{
-    conn.query(`insert into board (subject,nickname,story) values("${subject}","${nickname}","${story}")`,(error,result)=>{
-        // console.log(result)
-        if(error) throw error
-        console.log(result)
-        res.redirect('/board/list')
-        })
-        conn.release()
-    })
+    if(subject===''){
+        res.send(alertmove('/board/list/write', '제목은 좀 써주세요.'))
+    } else if (nickname===''){
+        res.send(alertmove('/board/list/write', '작성자를 작성해줘요.'))
+    } else {
+        pool.getConnection( (err,conn)=>{
+            conn.query(`insert into board (subject,nickname,story) values("${subject}","${nickname}","${story}")`,(error,result)=>{
+                // console.log(result)
+                if(error) throw error
+                console.log(result)
+                res.redirect('/board/list')
+                })
+                conn.release()
+            })
+    }
 })
 
 
