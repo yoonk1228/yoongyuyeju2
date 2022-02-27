@@ -1,37 +1,38 @@
 {% extends "../template/_layout.html" %}
 {% block content %}
-<h1>회원가입 페이지에요!!</h1>
-<form method="post" action="/user/signup">
-    <ul id="signup-input">
-        <li>
-            <input type="text" name="userid" placeholder="아이디를 입력하세요">
-        </li>
-        <li>
-            <input type="password" name="userpw" placeholder="비밀번호르 입력하세요">
-        </li>
-        <li>
-            <input type="text" name="username" placeholder="이름을 입력하세요">
-        </li>
-        <li>
-            <input type="text" name="nickname" placeholder="별명을 입력하세요">
-        </li>
-        <li>
-            <input type="radio" name="gender" value="남">남자
-            <input type="radio" name="gender" value="여">여자
-        </li>
-        <li>
-            <input type="text" name="localadd" placeholder="일단 주소모두적어봐">
-        </li>
-        <li>
-            <input type="text" name="email" placeholder="이메일을 입력하세요">
-        </li>
-        <li>
-            <input type="tel" name="tel" placeholder="일단 전화번호 적어봐">
-        </li>
-        <li>
-            <input type="date" name="birth" placeholder="생일을 적어봐">
-        </li>
-    </ul>
-    <input type="submit" value="가입하기">
-</form>
+<div id="signup">
+    <form method="post" action="/user/signup">
+        <ul id="signup-input">
+            <li>
+                <input type="text" name="userid" placeholder="아이디를 입력하세요">
+            </li>
+            <li>
+                <input type="password" name="userpw" placeholder="비밀번호르 입력하세요">
+            </li>
+            <li>
+                <input type="text" name="username" placeholder="이름을 입력하세요">
+            </li>
+            <li>
+                <input type="text" name="nickname" placeholder="별명을 입력하세요">
+            </li>
+            <li>
+                <input type="radio" name="gender" value="남">남자
+                <input type="radio" name="gender" value="여">여자
+            </li>
+            <li>
+                <input type="text" name="localadd" placeholder="일단 주소모두적어봐">
+            </li>
+            <li>
+                <input type="text" name="email" placeholder="이메일을 입력하세요">
+            </li>
+            <li>
+                <input type="tel" name="tel" placeholder="일단 전화번호 적어봐">
+            </li>
+            <li>
+                <input type="date" name="birth" placeholder="생일을 적어봐">
+            </li>
+        </ul>
+        <input type="submit" value="가입하기">
+    </form>
+</div>
 {% endblock %}
