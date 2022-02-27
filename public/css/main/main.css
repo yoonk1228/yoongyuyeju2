@@ -1,5 +1,21 @@
 /* CSS style sheet */
 
+#main-wrap {
+    width: 100%;
+    padding-top: 57px;
+}
+
+#main {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#main > .login-form {
+    max-width: 500px;
+    margin: 0 auto;
+    /* css flex */
+    display: flex;
+}
 .img-area {
     width: 500px;
     height: 300px;

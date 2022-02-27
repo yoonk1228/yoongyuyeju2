@@ -3,38 +3,39 @@
 
 {% endblock %}
 {% block content %}
-<h1>메인 (첫 화면) 페이지에요!!</h1>
-<div id="main">
-    {% if user.userid === undefined %}
-    <div id="section-login">
-        <form method="post" action="/user/login">
-            <li>
-                <input type="text" name="userid" placeholder="아이디를 입력하세요">
-            </li>
-            <li>
-                <input type="password" name="userpw" placeholder="패스워드를 입력하세요">
-            </li>
-            <li>
-                <input class="btn btn-font" type="submit" value="로그인하기">
-            </li>
-            <li>
-                <a class="btn btn-font" href="/user/signup">회원가입</a>
-            </li>
-        </form>
-    </div>
-    {% elif user.userid !== undefined %}
-    <div id="section-welcome">
-        <h1>{{user.username}}님 환영합니다!</h1>
-    </div>
-    {% endif %}
-    <div id="content">
-        <div class="img-area">
-            <div class="album">
-                <img src="/img/img1.jpg" alt="#" >
-                <img src="/img/img2.jpg" alt="#" >
-                <img src="/img/img3.jpg" alt="#" >
-                <img src="/img/img4.jpg" alt="#" >
-                <img src="/img/img5.png" alt="#" >
+<div id="main-wrap">
+    <div id="main">
+        {% if user.userid === undefined %}
+        <div class="login-form login">
+            <form method="post" action="/user/login">
+                <li>
+                    <input type="text" name="userid" placeholder="아이디를 입력하세요">
+                </li>
+                <li>
+                    <input type="password" name="userpw" placeholder="패스워드를 입력하세요">
+                </li>
+                <li>
+                    <input class="btn btn-font" type="submit" value="로그인하기">
+                </li>
+                <li>
+                    <a class="btn btn-font" href="/user/signup">회원가입</a>
+                </li>
+            </form>
+        </div>
+        {% elif user.userid !== undefined %}
+        <div class="login-form welcome">
+            <h1>{{user.username}}님 환영합니다!</h1>
+        </div>
+        {% endif %}
+        <div id="slide-content">
+            <div class="img-area">
+                <div class="album">
+                    <img src="/img/img1.jpg" alt="#" >
+                    <img src="/img/img2.jpg" alt="#" >
+                    <img src="/img/img3.jpg" alt="#" >
+                    <img src="/img/img4.jpg" alt="#" >
+                    <img src="/img/img5.png" alt="#" >
+                </div>
             </div>
         </div>
     </div>
