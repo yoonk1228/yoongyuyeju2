@@ -1,6 +1,6 @@
 {% extends "../../template/_layout.html" %}
 {% block content %}
-    <h1>리스트에서 글 누르고 나오는 페이지에요!!</h1>
+<div id="board-view">
     <ul>
         <li>
             게시물 번호 : {{data.idx}}
@@ -26,5 +26,5 @@
     </form>
     
     <a class="btn btn-font" href="/board/list/update?index={{index}}">수정하기</a>
-    
+</div>
 {% endblock %}

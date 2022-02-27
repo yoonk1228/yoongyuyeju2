@@ -32,14 +32,14 @@ p {
     color: white;
 }
 
-/* 메인 래핑 페이지 */
+/* main wrap 영역 */
 #main-wrap {
     width: 100%;
     padding-top: 57px;
 }
 
 /* 페이지별 컨텐츠 */
-#main,#signup {
+#main,#user-signup,#user-infoupdate,#board-view,#user-login,#user-profile{
     max-width: 900px;
     margin: 0 auto;
     padding: 50px 0 50px 0;

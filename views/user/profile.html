@@ -1,43 +1,44 @@
 {% extends "../template/_layout.html" %}
 {% block content %}
-<h1>유저 정보( 내정보 ) 페이지에요!!</h1>
-<form method="post" action="/user/profile">
-    <ul>
-        <li>
-            이름: {{user.username}}
-        </li>
-        <li>
-            별명: {{user.nickname}}
-        </li>
-        {% if user.gender === '남' %}
-        <li>
-            성별: {{user.gender}}자
-        </li>
-        {% elif user.gender === '여' %}
-        <li>
-            성별: {{user.gender}}자
-        </li>
-        {% endif %}
-        <li>
-            주소: {{user.localadd}}
-        </li>
-        <li>
-            이메일: {{user.email}}
-        </li>
-        <li>
-            전화번호: {{user.tel}}
-        </li>
-        <li>
-            생일: {{user.birth}}
-        </li>
-    </ul>
-    <ul>
-        <li>
-            <a class="btn btn-font" href="/user/update">정보 수정하기</a>
-        </li>
-        <li>
-            <a class="btn btn-font" href="/">뒤로가기</a>
-        </li>
-    </ul>
-</form>
+<div id="user-profile">
+    <form method="post" action="/user/profile">
+        <ul>
+            <li>
+                이름: {{user.username}}
+            </li>
+            <li>
+                별명: {{user.nickname}}
+            </li>
+            {% if user.gender === '남' %}
+            <li>
+                성별: {{user.gender}}자
+            </li>
+            {% elif user.gender === '여' %}
+            <li>
+                성별: {{user.gender}}자
+            </li>
+            {% endif %}
+            <li>
+                주소: {{user.localadd}}
+            </li>
+            <li>
+                이메일: {{user.email}}
+            </li>
+            <li>
+                전화번호: {{user.tel}}
+            </li>
+            <li>
+                생일: {{user.birth}}
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a class="btn btn-font" href="/user/update">정보 수정하기</a>
+            </li>
+            <li>
+                <a class="btn btn-font" href="/">뒤로가기</a>
+            </li>
+        </ul>
+    </form>
+</div>
 {% endblock %}
