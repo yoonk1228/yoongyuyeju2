@@ -3,7 +3,7 @@ const {alertmove} = require('../../util/alert')
 
 exports.Update = (req, res)=>{
     const user = req.session
-    console.log(user)
+    //console.log(user)
     
     res.render('user/infoupdate',{
         user:user
@@ -20,30 +20,20 @@ exports.UpdateAction = (req, res)=>{
         let modify = []; // 쿼리문 형태로 넣을 배열 
         arr.forEach((e)=>{
             if (user[e] != new_user[e]){
-                user[e] = new_user[e]
+                //user[e] = new_user[e]
                 modify_key.push(e)
-                modify.push(`${e} = '${user[e]}'`) //["nickname = '귤'", 등등....]
+                modify.push(`${e} = '${new_user[e]}'`) //["nickname = '귤'", 등등....]
             } // 변경사항이 있는 컬럼 추출 및 쿼리문에 들어갈 내용 생성
         })
         //console.log("변경된사항", user)
         
 
         let query = modify.join() //배열을 string으로 변경
-        console.log(query) // 출력결과 : nickname = '귤',gender = '여',localadd = '우리집'
-
-
+        //console.log(query) // 출력결과 : nickname = '귤',gender = '여',localadd = '우리집'
+   
+        conn.query(`update personal set ${query} where userid='${user.userid}';`,(error,result)=>{
             
-        conn.query(`update personal set ${query} where userid='${req.body.userid}';`,(error,result)=>{
-            console.log("결과", result, error)
-            if (result){
-                console.log(result)
-                modify_key.forEach((e)=>{
-                    req.session[e] = req.body[e] //세션변경
-                })
-
-                res.send(alertmove('/user/profile', '프로필 수정이 완료되었습니다.'))
-                
-            } else if(error){
+            if(error){
                 if (error.errno == 1062){
                     if(error.sqlMessage.includes('personal.PRIMARY')){
                         res.send(alertmove('/user/profile', '중복된 아이디입니다. 다른 아이디를 입력해주세요.'))
@@ -61,6 +51,14 @@ exports.UpdateAction = (req, res)=>{
                 } else {
                     throw error
                 }
+                
+            }else if (result){
+                
+                modify_key.forEach((e)=>{
+                    //console.log("수정완료")
+                    req.session[e] = req.body[e] //세션변경                   
+                })
+                res.send(alertmove('/user/profile', '프로필 수정이 완료되었습니다.'))
                 
             }
             
