@@ -1,19 +1,23 @@
 {% extends "../template/_layout.html" %}
 {% block content %}
 <div id="user-login">
-    <form method="post" action="/user/login">
-        <ul>
-            <li>
-                <input type="text" name="userid" placeholder="아이디를 입력하세요">
-            </li>
-            <li>
-                <input type="password" name="userpw" placeholder="패스워드를 입력하세요">
-            </li>
-            <li>
-                <input class="btn btn-font" type="submit" value="로그인하기">
-            </li>
-        </ul>
-    </form>
-    <a class="btn btn-font" href="/user/signup">회원가입</a>
+    <div class="login-form login login-form-center">
+        <form method="post" action="/user/login">
+            <ul>
+                <li>
+                    <input class="login-input" type="text" name="userid" placeholder="아이디를 입력하세요">
+                </li>
+                <li>
+                    <input class="login-input" type="password" name="userpw" placeholder="패스워드를 입력하세요">
+                </li>
+                <li>
+                    <input class="btn btn-font" type="submit" value="로그인하기">
+                </li>
+                <li>
+                    <a class="btn btn-font" href="/user/signup">회원가입</a>
+                </li>
+            </ul>
+        </form>
+    </div>
 </div>
 {% endblock %}

@@ -1,0 +1,23 @@
+/* css style sheet */
+/* css flex */
+
+#user-infoupdate {
+    justify-content: center;
+    flex-direction: column;
+}
+
+#user-infoupdate > form > ul > li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#user-infoupdate > form:first-child {
+    /* css flex */
+    display: flex;
+    flex-direction: column;
+}
+
+#user-infoupdate > form:last-child {
+    /* css flex */
+    display: flex;
+}

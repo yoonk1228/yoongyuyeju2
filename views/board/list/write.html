@@ -1,6 +1,6 @@
 {% extends "../../template/_layout.html" %}
 {% block content %}
-    <h1>글 작성 페이지에요!!</h1>
+<div id="board-write">
     <form method="post" action="/board/list/write">
         <ul>
             <li>
@@ -15,4 +15,5 @@
         </ul>
         <input class="btn btn-font" type="submit" value="글 작성">
     </form>
+</div>
 {% endblock %}

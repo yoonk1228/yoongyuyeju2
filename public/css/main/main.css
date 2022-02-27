@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-/* CSS style sheet */
-
-=======
 /* CSS style sheet */
 
 #main > .login-form {
@@ -22,7 +18,11 @@
     background-color: rgb(233, 233, 233);
 }
 
-.login > form > li{
+.login-form-center {
+    margin: 0 auto;
+}
+
+.login > form > ul > li{
     /* css flex */
     display: flex;
     flex-direction: row-reverse;
@@ -73,4 +73,3 @@
     display: flex;
     justify-content: space-around;
 }
->>>>>>> 4a80eba7ef9ff4013a5de0548f9d9fbc1a65fc59

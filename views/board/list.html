@@ -1,6 +1,6 @@
 {% extends "../template/_layout.html" %}
 {% block content %}
-    <h1>게시판 리스트가 보여요!!</h1>
+<div id="board-list">
     <table>
         <tr>
             <td>번호</td>
@@ -20,4 +20,5 @@
         {% endfor %}
     </table>
     <a class="btn btn-font" href="/board/list/write">글 작성</a>
+</div>
 {% endblock %}

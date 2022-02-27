@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-/* CSS style sheet */
-
-#header {
-    width: 100%;
-    border-bottom: 1px solid #000;
-=======
 /* CSS style sheet */
 
 #header-wrap {
@@ -35,12 +28,23 @@
     left : 50%;
     top : 50%;
     transform : translate(-50%, -50%);
+    height: 30px;
     /* css flex */
     display: flex;
 }
 
 #header > ul > li {
-    margin-right: 30px;
+    margin: 0 10px 0 10px;
+}
+
+#header > ul > li::after {
+    padding-left: 2px;
+    padding-right: 5px;
+    content: "|";
+}
+
+#header > ul > li:last-child::after {
+    content: "";
 }
 
 #header > h1 > a > img {
@@ -50,5 +54,4 @@
 
 .btn-menu-font {
     font-size: 16px;
->>>>>>> f001b31fa605226ec50b8512b2d93bc59cd33a5d
 }

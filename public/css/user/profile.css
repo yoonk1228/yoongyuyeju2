@@ -1,0 +1,27 @@
+/* css style sheet */
+/* css flex */
+
+#user-profile {
+    justify-content: center;
+}
+
+#user-profile > form > ul > li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.profile-btn-group {
+    /* css flex */
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.profile-btn-group > li::after {
+    padding-left: 2px;
+    padding-right: 5px;
+    content: "|";
+}
+
+.profile-btn-group > li:first-child::after {
+    content: "";
+}
