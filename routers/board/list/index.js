@@ -57,7 +57,7 @@ router.post('/write',(req,res)=>{
     } else {
         pool.getConnection( (err,conn)=>{
             conn.query(`insert into board (subject,nickname,story) values("${subject}","${nickname}","${story}")`,(error,result)=>{
-                // console.log(result)
+                
                 if(error) throw error
                 console.log(result)
                 res.redirect('/board/list')
