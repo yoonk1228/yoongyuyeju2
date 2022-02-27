@@ -26,17 +26,20 @@ exports.joinAction = (req,res) => {
         conn.query( sql2, prepare, (error, result)=>{
             if(result){
                 console.log(result);
-                res.send(alertmove('/', '회원가입이 완료되었습니다. 로그인을 해주세요.')) //회원환영페이지 이동
+                let msg = `회원가입이 완료되었습니다. 로그인 해주세요\\n이름 : ${username}\\n별명 : ${nickname}\\n성별 : ${gender}\\n주소 : ${localadd}\\n이메일 : ${email}\\n전화번호 : ${tel}\\n생일 : ${birth}`;
+                res.send(alertmove('/',msg)) //회원환영페이지 이동
             }
             else if(error.errno == 1062){
                 console.log(error)
                 console.log(error.sqlMessage)
                 if(error.sqlMessage.includes('personal.PRIMARY')){
-                    res.send(alertmove('user/signup', '중복된 아이디입니다. 다시 진행해주세요.'))
+                    res.send(alertmove('signup', '중복된 아이디입니다. 다시 진행해주세요.'))
                 } else if(error.sqlMessage.includes('personal.nickname')){
-                    res.send(alertmove('user/signup', '중복된 닉네임입니다. 다시 진행해주세요.'))
+                    res.send(alertmove('signup', '중복된 닉네임입니다. 다시 진행해주세요.'))
                 } else if(error.sqlMessage.includes('personal.email')){
-                    res.send(alertmove('user/signup', '이미 가입된 이메일입니다. 다시 진행해주세요.'))
+                    res.send(alertmove('signup', '이미 가입된 이메일입니다. 다시 진행해주세요.'))
+                } else if(error.sqlMessage.includes('gender')){
+                    res.send(alertmove('signup','성별을 선택해주세요.'))
                 }
                 
             } else {
