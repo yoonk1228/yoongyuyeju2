@@ -15,7 +15,7 @@ exports.UpdateAction = (req, res)=>{
     
         let new_user = req.body  //새로입력된 데이터
         let user = req.session //기존 데이터
-        const arr = ['userpw', 'nickname', 'gender', 'localadd', 'email', 'tel', 'birth'] // 변경가능한 컬럼값(회원정보)
+        const arr = ['userpw', 'username', 'nickname', 'gender', 'localadd', 'email', 'tel', 'birth'] // 변경가능한 컬럼값(회원정보)
         let modify_key = []; //정보가 변경된 컬럼명만 넣을 배열
         let modify = []; // 쿼리문 형태로 넣을 배열 
         arr.forEach((e)=>{
@@ -29,7 +29,7 @@ exports.UpdateAction = (req, res)=>{
         
 
         let query = modify.join() //배열을 string으로 변경
-        //console.log(query) // 출력결과 : nickname = '귤',gender = '여',localadd = '우리집'
+        console.log(query) // 출력결과 : nickname = '귤',gender = '여',localadd = '우리집'
 
 
             
