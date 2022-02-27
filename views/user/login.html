@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "../template/_layout.html" %}
 {% block content %}
 <h1>로그인 페이지에요!! (홈화면에서 로그인 실패시 일루옴)</h1>
@@ -15,4 +16,24 @@
     </ul>
 </form>
 <a class="btn btn-font" href="/user/signup">회원가입</a>
+=======
+{% extends "../template/_layout.html" %}
+{% block content %}
+<div id="user-login">
+    <form method="post" action="/user/login">
+        <ul>
+            <li>
+                <input type="text" name="userid" placeholder="아이디를 입력하세요">
+            </li>
+            <li>
+                <input type="password" name="userpw" placeholder="패스워드를 입력하세요">
+            </li>
+            <li>
+                <input class="btn btn-font" type="submit" value="로그인하기">
+            </li>
+        </ul>
+    </form>
+    <a class="btn btn-font" href="/user/signup">회원가입</a>
+</div>
+>>>>>>> 1d60adc1054418230679d5040c23264d2bb26c6f
 {% endblock %}

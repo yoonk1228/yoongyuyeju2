@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <header id="header">
     <h1>
         <a href="/">Logo</a>
@@ -21,4 +22,31 @@
         {% else %}
         {% endif %}
     </ul>
+=======
+<header id="header-wrap">
+    <div id="header">
+        <h1>
+            <a href="/"><img src="/img/Team4.png" alt="#"></a>
+        </h1>
+        <ul>
+            <li>
+                <a href="/board/list">게시판</a>
+            </li>
+            {% if user.userid !== undefined %}
+            <li>
+                <a href="/user/profile">내 정보</a>
+            </li>
+            {% else %}
+            {% endif %}
+            {% if user.userid !== undefined %}
+            <li>
+                <form method="post" action="/user/logout">
+                    <input class="btn btn-menu-font" type="submit" value="로그아웃">
+                </form>
+            </li>
+            {% else %}
+            {% endif %}
+        </ul>
+    </div>
+>>>>>>> 1d60adc1054418230679d5040c23264d2bb26c6f
 </header>

@@ -1,48 +1,56 @@
 {% extends "../template/_layout.html" %}
 {% block content %}
-<h1>내 정보 수정 페이지에요!!</h1>
-<form method="post" action="/user/update">
-    <ul>
-        <li>
-            비밀번호: <input type="password" name="userpw" value="{{user.userpw}}">
-        </li>
-        <li>
-            이름: <input type="text" name="username" value="{{user.username}}">
-        </li>
-        <li>
-            별명: <input type="text" name="nickname" value="{{user.nickname}}">
-        </li>
-        {% if user.gender === '남' %}
-        <li>
-            <input type="radio" name="gender" value="남자" checked="checked">남
-            <input type="radio" name="gender" value="여자">여자
-        </li>
-        {% elif user.gender === '여' %}
-        <li>
-            <input type="radio" name="gender" value="남자">남자
-            <input type="radio" name="gender" value="여자" checked="checked">여자
-        </li>
-        <!-- user 정보가 없는 상황에서 테스트를 위한 목업코드 -->
-        {% else %}
-        <li>
-            <input type="radio" name="gender" value="남자">남자
-            <input type="radio" name="gender" value="여자" checked="checked">여자
-        </li>
-        {% endif %}
-        <li>
-            주소: <input type="text" name="address" value="{{user.localadd}}">
-        </li>
-        <li>
-            이메일: <input type="text" name="email" value="{{user.email}}">
-        </li>
-        <li>
-            전화번호: <input type="text" name="tel" value="{{user.tel}}">
-        </li>
-        <li>
-            생일: <input type="text" name="birth" value="{{user.birth}}">
-        </li>
-    </ul>
-    <input type="submit" value="수정하기">
+<div id="user-infoupdate">
+    <form method="post" action="/user/update">
+        <ul>
+            <li>
+                ID : <input type="text" name="userid" value="{{user.userid}}">
+            </li>
+            <li>
+                비밀번호: <input type="password" name="userpw" value="{{user.userpw}}">
+            </li>
+            <li>
+                이름: <input type="text" name="username" value="{{user.username}}">
+            </li>
+            <li>
+                별명: <input type="text" name="nickname" value="{{user.nickname}}">
+            </li>
+            {% if user.gender === '남' %}
+            <li>
+                <input type="radio" name="gender" value="남" checked="checked">남자
+                <input type="radio" name="gender" value="여">여자
+            </li>
+            {% elif user.gender === '여' %}
+            <li>
+                <input type="radio" name="gender" value="남">남자
+                <input type="radio" name="gender" value="여" checked="checked">여자
+            </li>
+            <!-- user 정보가 없는 상황에서 테스트를 위한 목업코드 -->
+            {% else %}
+            <li>
+                <input type="radio" name="gender" value="남">남자
+                <input type="radio" name="gender" value="여" checked="checked">여자
+            </li>
+            {% endif %}
+            <li>
+                주소: <input type="text" name="localadd" value="{{user.localadd}}">
+            </li>
+            <li>
+                이메일: <input type="text" name="email" value="{{user.email}}">
+            </li>
+            <li>
+                전화번호: <input type="tel" name="tel" value="{{user.tel}}">
+            </li>
+            <li>
+                생일: <input type="date" name="birth" value="{{user.birth}}">
+            </li>
+        </ul>
+        <input type="submit" value="수정하기">
+    </form>
+    <form method="post" action="/user/resign">
+        <input type="hidden" name="userid" value="{{user.userid}}">
+        <input type="submit" value="탈퇴하기">
+    </form>
     <a class="btn btn-font" href="/">뒤로가기</a>
-</form>
+</div>
 {% endblock %}

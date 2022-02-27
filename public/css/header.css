@@ -7,9 +7,45 @@
 =======
 /* CSS style sheet */
 
-#header {
+#header-wrap {
+    position: fixed;
     width: 100%;
-    border-bottom: 1px solid #000;
+    min-width: 413px;
+    z-index: 9;
+    background-color: white;
+}
+
+#header {
+    max-width: 900px;
+    margin: 0 auto;
+    z-index: 10;
+    /*background: linear-gradient(to top, white, yellow);*/
+    box-sizing: border-box;
+    padding: 0 100px 0 100px;
+    height: 57px;
+    border-bottom: 1px solid #000000;
+}
+
+#header > h1 {
+    float: left;
+}
+
+#header > ul {
+    position : absolute;
+    left : 50%;
+    top : 50%;
+    transform : translate(-50%, -50%);
+    /* css flex */
+    display: flex;
+}
+
+#header > ul > li {
+    margin-right: 30px;
+}
+
+#header > h1 > a > img {
+    width: 50px;
+    height: 50px;
 }
 
 .btn-menu-font {

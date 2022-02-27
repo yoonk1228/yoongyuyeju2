@@ -35,4 +35,23 @@ p {
     background: black;
     color: white;
 }
+<<<<<<< HEAD
 >>>>>>> f001b31fa605226ec50b8512b2d93bc59cd33a5d
+=======
+
+/* main wrap 영역 */
+#main-wrap {
+    width: 100%;
+    padding-top: 57px;
+}
+
+/* 페이지별 컨텐츠 */
+#main,#user-signup,#user-infoupdate,#board-view,#user-login,#user-profile{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px 0 50px 0;
+    /* css flex */
+    display: flex;
+    align-items: center;
+}
+>>>>>>> 1d60adc1054418230679d5040c23264d2bb26c6f

@@ -4,10 +4,41 @@
 =======
 /* CSS style sheet */
 
+#main > .login-form {
+    max-width: 500px;
+    margin: 0 auto;
+    /* css flex */
+    display: flex;
+}
+
+.login-input {
+    height: 32px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(233, 233, 233);
+}
+
+.login > form > li{
+    /* css flex */
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.btn-login {
+
+}
+
+#slide-content {
+    max-width: 500px;
+
+}
 .img-area {
     width: 500px;
     height: 300px;
-    border: 1px solid #000000;
     /* flex */
     display: flex;
     /* 삐져나오는 부분 안보이게 hidden */
