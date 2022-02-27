@@ -1,7 +1,4 @@
 {% extends "./template/_layout.html" %}
-{% block css %}
-
-{% endblock %}
 {% block content %}
 <div id="main-wrap">
     <div id="main">
@@ -9,16 +6,16 @@
         <div class="login-form login">
             <form method="post" action="/user/login">
                 <li>
-                    <input type="text" name="userid" placeholder="아이디를 입력하세요">
+                    <input class="login-input" type="text" name="userid" placeholder="아이디를 입력하세요">
                 </li>
                 <li>
-                    <input type="password" name="userpw" placeholder="패스워드를 입력하세요">
+                    <input class="login-input" type="password" name="userpw" placeholder="패스워드를 입력하세요">
                 </li>
                 <li>
-                    <input class="btn btn-font" type="submit" value="로그인하기">
+                    <input class="btn btn-font btn-login" type="submit" value="로그인하기">
                 </li>
                 <li>
-                    <a class="btn btn-font" href="/user/signup">회원가입</a>
+                    <a class="btn btn-font btn-login" href="/user/signup">회원가입</a>
                 </li>
             </form>
         </div>

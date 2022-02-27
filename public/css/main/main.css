@@ -8,6 +8,10 @@
 #main {
     max-width: 900px;
     margin: 0 auto;
+    padding: 50px 0 50px 0;
+    /* css flex */
+    display: flex;
+    align-items: center;
 }
 
 #main > .login-form {
@@ -15,6 +19,32 @@
     margin: 0 auto;
     /* css flex */
     display: flex;
+}
+
+.login-input {
+    height: 32px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(233, 233, 233);
+}
+
+.login > form > li{
+    /* css flex */
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.btn-login {
+
+}
+
+#slide-content {
+    max-width: 500px;
+
 }
 .img-area {
     width: 500px;
