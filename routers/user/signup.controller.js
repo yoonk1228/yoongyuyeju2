@@ -3,7 +3,6 @@ const {alertmove} = require('../../util/alert')
 exports.join = (req,res)=>{
     res.render('user/signup')
 }
-console.log('되나?')
 exports.joinAction = (req,res) => {
     let {
         userid,
@@ -28,6 +27,9 @@ exports.joinAction = (req,res) => {
                 console.log(result);
                 let msg = `회원가입이 완료되었습니다. 로그인 해주세요\\n이름 : ${username}\\n별명 : ${nickname}\\n성별 : ${gender}\\n주소 : ${localadd}\\n이메일 : ${email}\\n전화번호 : ${tel}\\n생일 : ${birth}`;
                 res.send(alertmove('/',msg)) //회원환영페이지 이동
+            }
+            else if(error.errno == 1048){
+                res.send(alertmove('signup', '모든 정보를 입력해주세요.'))
             }
             else if(error.errno == 1062){
                 console.log(error)
