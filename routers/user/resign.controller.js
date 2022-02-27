@@ -14,7 +14,7 @@ exports.resignAction = (req, res) => {
             }else if (err) throw err
             
             console.log(err)
-            
+            res.send(alertmove('/user/profile', '다시 시도해주세요.')) 
             
         })
     })
