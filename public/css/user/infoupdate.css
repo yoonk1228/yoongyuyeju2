@@ -6,9 +6,14 @@
     flex-direction: column;
 }
 
-#user-infoupdate > form > ul > li {
-    margin-top: 5px;
-    margin-bottom: 5px;
+#user-infoupdate > form > p {
+    margin-top: 10px;
+}
+
+#user-infoupdate > form > ul {
+    /* css flex */
+    display: flex;
+    justify-content: space-evenly;
 }
 
 #user-infoupdate > form:first-child {

@@ -2,55 +2,60 @@
 {% block content %}
 <div id="user-infoupdate">
     <form method="post" action="/user/update">
+        <input type="hidden" name="userid" value="{{user.userid}}">
+        <p>비밀번호</p>
+        <span class="box-input">
+            <input type="password" name="userpw" value="{{user.userpw}}">
+        </span>
+        <p>이름</p>
+        <span class="box-input">
+           <input type="text" name="username" value="{{user.username}}">
+        </span>
+        <p>별명</p>
+        <span class="box-input">
+            <input type="text" name="nickname" value="{{user.nickname}}">
+        </span>
+        {% if user.gender === '남' %}
+        <p>남자</p>
+        <input type="radio" name="gender" value="남" checked="checked">
+        <p>여자</p>
+        <input type="radio" name="gender" value="여">
+        {% elif user.gender === '여' %}
+        <p>남자</p>
+        <input type="radio" name="gender" value="남">
+        <p>여자</p>
+        <input type="radio" name="gender" value="여" checked="checked">
+        <!-- user 정보가 없는 상황에서 테스트를 위한 목업코드 -->
+        {% else %}
+        <p>남자</p>
+        <input type="radio" name="gender" value="남">
+        <p>여자</p>
+        <input type="radio" name="gender" value="여" checked="checked">
+        {% endif %}
+        <p>주소</p>
+        <span class="box-input">
+            <input type="text" name="localadd" value="{{user.localadd}}">
+        </span>
+        <p>이메일</p>
+        <span class="box-input">
+           <input type="text" name="email" value="{{user.email}}">
+        </span>
+        <p>전화번호</p>
+        <span class="box-input">
+            <input type="tel" name="tel" value="{{user.tel}}">
+        </span>
+        <p>생일</p>
+        <span class="box-input">
+            <input type="date" name="birth" value="{{user.birth}}">
+        </span>
         <ul>
-            <li>
-                ID : <input type="text" name="userid" value="{{user.userid}}">
-            </li>
-            <li>
-                비밀번호: <input type="password" name="userpw" value="{{user.userpw}}">
-            </li>
-            <li>
-                이름: <input type="text" name="username" value="{{user.username}}">
-            </li>
-            <li>
-                별명: <input type="text" name="nickname" value="{{user.nickname}}">
-            </li>
-            {% if user.gender === '남' %}
-            <li>
-                <input type="radio" name="gender" value="남" checked="checked">남자
-                <input type="radio" name="gender" value="여">여자
-            </li>
-            {% elif user.gender === '여' %}
-            <li>
-                <input type="radio" name="gender" value="남">남자
-                <input type="radio" name="gender" value="여" checked="checked">여자
-            </li>
-            <!-- user 정보가 없는 상황에서 테스트를 위한 목업코드 -->
-            {% else %}
-            <li>
-                <input type="radio" name="gender" value="남">남자
-                <input type="radio" name="gender" value="여" checked="checked">여자
-            </li>
-            {% endif %}
-            <li>
-                주소: <input type="text" name="localadd" value="{{user.localadd}}">
-            </li>
-            <li>
-                이메일: <input type="text" name="email" value="{{user.email}}">
-            </li>
-            <li>
-                전화번호: <input type="tel" name="tel" value="{{user.tel}}">
-            </li>
-            <li>
-                생일: <input type="date" name="birth" value="{{user.birth}}">
-            </li>
+            <a class="btn btn-medium btn-blue" href="/" style="margin-top: 5px;">뒤로가기</a>
+            <input class="btn btn-medium btn-blue" type="submit" value="수정하기" style="margin-top: 7px;">
         </ul>
-        <input type="submit" value="수정하기">
     </form>
     <form method="post" action="/user/resign">
         <input type="hidden" name="userid" value="{{user.userid}}">
-        <a class="btn btn-font" href="/">뒤로가기</a>
-        <input type="submit" value="탈퇴하기">
+        <input class="btn btn-medium btn-red" type="submit" value="탈퇴하기" style="margin-top: 10px;">
     </form>
 </div>
 {% endblock %}

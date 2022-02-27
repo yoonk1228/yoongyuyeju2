@@ -16,7 +16,8 @@
     box-sizing: border-box;
     padding: 0 100px 0 100px;
     height: 57px;
-    border-bottom: 1px solid #000000;
+    border-bottom: 2px solid #000000;
+    border-radius: 0.3em;
 }
 
 #header > h1 {

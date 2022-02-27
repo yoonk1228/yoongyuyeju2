@@ -2,37 +2,43 @@
 {% block content %}
 <div id="user-signup">
     <form method="post" action="/user/signup">
-        <ul id="signup-input">
-            <li>
-                <input type="text" name="userid" placeholder="아이디를 입력하세요">
-            </li>
-            <li>
-                <input type="password" name="userpw" placeholder="비밀번호르 입력하세요">
-            </li>
-            <li>
-                <input type="text" name="username" placeholder="이름을 입력하세요">
-            </li>
-            <li>
-                <input type="text" name="nickname" placeholder="별명을 입력하세요">
-            </li>
-            <li>
-                <input type="radio" name="gender" value="남">남자
-                <input type="radio" name="gender" value="여">여자
-            </li>
-            <li>
-                <input type="text" name="localadd" placeholder="일단 주소모두적어봐">
-            </li>
-            <li>
-                <input type="text" name="email" placeholder="이메일을 입력하세요">
-            </li>
-            <li>
-                <input type="tel" name="tel" placeholder="일단 전화번호 적어봐">
-            </li>
-            <li>
-                <input type="date" name="birth" placeholder="생일을 적어봐">
-            </li>
-        </ul>
-        <input type="submit" value="가입하기">
+        <p>ID</p>
+        <span class="box-input">
+            <input type="text" name="userid" placeholder="아이디를 입력하세요">
+        </span>
+        <p>비밀번호</p>
+        <span class="box-input">
+            <input type="password" name="userpw" placeholder="비밀번호르 입력하세요">
+        </span>
+        <p>이름</p>
+        <span class="box-input">
+            <input type="text" name="username" placeholder="이름을 입력하세요">
+        </span>
+        <p>별명</p>
+        <span class="box-input">
+            <input type="text" name="nickname" placeholder="별명을 입력하세요">
+        </span>
+        <p>남자</p>
+            <input type="radio" name="gender" value="남">남자
+        <p>여자</p>
+            <input type="radio" name="gender" value="여">여자
+        <p>주소</p>
+        <span class="box-input">
+            <input type="text" name="localadd" placeholder="일단 주소모두적어봐">
+        </span>
+        <p>이메일</p>
+        <span class="box-input">
+            <input type="text" name="email" placeholder="이메일을 입력하세요">
+        </span>
+        <p>전화번호</p>
+        <span class="box-input">
+            <input type="tel" name="tel" placeholder="일단 전화번호 적어봐">
+        </span>
+        <p>생일</p>
+        <span class="box-input">
+            <input type="date" name="birth" placeholder="생일을 적어봐">
+        </span>
+        <input class="btn btn-medium btn-blue" type="submit" value="가입하기">
     </form>
 </div>
 {% endblock %}

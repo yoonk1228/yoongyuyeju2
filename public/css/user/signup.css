@@ -1,2 +1,15 @@
 /* css style sheet */
 /* css flex */
+
+#user-signup {
+    justify-content: center;
+    flex-direction: column;
+}
+
+#user-signup > form > p {
+    margin-top: 10px;
+}
+
+#user-signup > form > input {
+    margin-top: 10px;
+}

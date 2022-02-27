@@ -2,21 +2,19 @@
 {% block content %}
 <div id="board-list">
     <table>
-        <tr>
+        <tr class="table-fix table-row">
             <td>번호</td>
-            <td>제목</td>
             <td>작성자</td>
+            <td>제목</td>
             <td>작성일</td>
         </tr>
-        
         {% for item in list %}
-        <tr>
+        <tr class="table-add table-row">
             <td>{{item.idx}}</td>
-            <td><a class="btn btn-font" href="/board/list/view?index={{item.idx}}">{{item.subject}}</a></td>
             <td>{{item.nickname}}</td>
+            <td><a class="btn btn-font btn-chocolate" href="/board/list/view?index={{item.idx}}" style="font-weight: bold">{{item.subject}}</a></td>
             <td>{{item.date}}</td>
         </tr>
-        
         {% endfor %}
     </table>
     <a class="btn btn-font" href="/board/list/write">글 작성</a>
