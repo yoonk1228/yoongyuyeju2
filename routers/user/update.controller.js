@@ -34,7 +34,7 @@ exports.UpdateAction = (req, res)=>{
 
             
         conn.query(`update personal set ${query} where userid='${req.body.userid}';`,(error,result)=>{
-            
+            console.log("결과", result, error)
             if (result){
                 console.log(result)
                 modify_key.forEach((e)=>{
@@ -44,14 +44,13 @@ exports.UpdateAction = (req, res)=>{
                 res.send(alertmove('/user/profile', '프로필 수정이 완료되었습니다.'))
                 
             } else if(error){
-                console.log("에러사항", error)
                 if (error.errno == 1062){
                     if(error.sqlMessage.includes('personal.PRIMARY')){
-                        res.send(alertmove('user/signup', '중복된 아이디입니다. 다른 아이디를 입력해주세요.'))
+                        res.send(alertmove('/user/profile', '중복된 아이디입니다. 다른 아이디를 입력해주세요.'))
                     } else if(error.sqlMessage.includes('personal.nickname')){
-                        res.send(alertmove('user/signup', '중복된 닉네임입니다. 다른 닉네임을 입력해주세요.'))
+                        res.send(alertmove('/user/profile', '중복된 닉네임입니다. 다른 닉네임을 입력해주세요.'))
                     } else if(error.sqlMessage.includes('personal.email')){
-                        res.send(alertmove('user/signup', '중복된 이메일입니다. 다른 이메일을 입력해주세요.'))
+                        res.send(alertmove('/user/profile', '중복된 이메일입니다. 다른 이메일을 입력해주세요.'))
                     }
                     
                 }
